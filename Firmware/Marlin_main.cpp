@@ -5976,7 +5976,8 @@ void ClearToSend()
 }
 
 void update_currents() {
-	float current_high[3] = DEFAULT_PWM_MOTOR_CURRENT_LOUD;
+#ifdef DIGIPOT_I2C
+  float current_high[3] = DEFAULT_PWM_MOTOR_CURRENT_LOUD;
 	float current_low[3] = DEFAULT_PWM_MOTOR_CURRENT;
 	float tmp_motor[3];
 	
@@ -6010,6 +6011,7 @@ void update_currents() {
 			MYSERIAL.println(tmp_motor[i]);*/
 		}
 	}
+#endif //  DIGIPOT_I2C
 }
 
 void get_coordinates()

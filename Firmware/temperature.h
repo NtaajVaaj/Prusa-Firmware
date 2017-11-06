@@ -74,7 +74,6 @@ extern float current_temperature_bed;
   
 #ifdef BABYSTEPPING
   extern volatile int babystepsTodo[3];
-#endif
 
 inline void babystepsTodoZadd(int n)
 {
@@ -93,6 +92,8 @@ inline void babystepsTodoZsubtract(int n)
         CRITICAL_SECTION_END
     }
 }
+#endif
+
 
 //high level conversion routines, for use outside of temperature.cpp
 //inline so that there is no performance decrease.

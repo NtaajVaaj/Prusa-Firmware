@@ -682,8 +682,9 @@ void lcd_commands()
 			enquecommand_P(PSTR("G1 F4000"));
 
 			lcd_implementation_clear();
+#ifdef BABYSTEPPING
 			lcd_goto_menu(lcd_babystep_z, 0, false);
-
+#endif
 
 			lcd_commands_step = 8;
 		}
@@ -925,7 +926,9 @@ void lcd_commands()
 		{
 			
 			lcd_implementation_clear();
+#ifdef BABYSTEPPING
 			lcd_goto_menu(lcd_babystep_z, 0, false);			
+#endif
 			enquecommand_P(PSTR("G1 X60.0 E9.0  F1000.0")); //intro line
 			enquecommand_P(PSTR("G1 X100.0 E12.5  F1000.0")); //intro line			
 			enquecommand_P(PSTR("G92 E0.0"));
@@ -1984,7 +1987,7 @@ static void lcd_move_z() {
 }
 
 
-
+#ifdef BABYSTEPPING
 static void _lcd_babystep(int axis, const char *msg) 
 {
     if (menuData.babyStep.status == 0) {
@@ -2046,8 +2049,10 @@ static void lcd_babystep_y() {
 }
 #endif
 static void lcd_babystep_z() {
-	_lcd_babystep(Z_AXIS, (MSG_BABYSTEPPING_Z));
+  _lcd_babystep(Z_AXIS, (MSG_BABYSTEPPING_Z));
 }
+#endif // BABYSTEPPING
+
 
 static void lcd_adjust_bed();
 
@@ -2209,9 +2214,11 @@ void lcd_adjust_z() {
       if (fsm == 1) {
         int babystepLoadZ = 0;
         EEPROM_read_B(EEPROM_BABYSTEP_Z, &babystepLoadZ);
+#ifdef BABYSTEPPING
         CRITICAL_SECTION_START
         babystepsTodo[Z_AXIS] = babystepLoadZ;
         CRITICAL_SECTION_END
+#endif //#ifdef BABYSTEPPING
       } else {
         int zero = 0;
         EEPROM_save_B(EEPROM_BABYSTEP_X, &zero);
@@ -3486,11 +3493,13 @@ static void lcd_settings_menu()
 	  default: MENU_ITEM(function, MSG_SILENT_MODE_OFF, lcd_silent_mode_set); break;
 	  }	  
   }
-  
+#ifdef BABYSTEPPING
 	if (!isPrintPaused && !homing_flag)
 	{
 		MENU_ITEM(submenu, MSG_BABYSTEP_Z, lcd_babystep_z);
 	}
+#endif
+
 	MENU_ITEM(submenu, MSG_LANGUAGE_SELECT, lcd_language_menu);
 
   if (card.ToshibaFlashAir_isEnabled()) {
@@ -4664,10 +4673,12 @@ static void lcd_main_menu()
         
     }*/
  
+#ifdef BABYSTEPPING
   if ( ( IS_SD_PRINTING || is_usb_printing || (lcd_commands_type == LCD_COMMAND_V2_CAL) ) && (current_position[Z_AXIS] < Z_HEIGHT_HIDE_LIVE_ADJUST_MENU) && !homing_flag && !mesh_bed_leveling_flag)
   {
 	MENU_ITEM(submenu, MSG_BABYSTEP_Z, lcd_babystep_z);//8
   }
+#endif
 
 
   if ( moves_planned() || IS_SD_PRINTING || is_usb_printing )
@@ -5319,6 +5330,7 @@ static bool lcd_selfcheck_axis(int _axis, int _travel)
 
 static bool lcd_selfcheck_pulleys(int axis)
 {
+#ifdef DIGIPOT_I2C
 	float tmp_motor_loud[3] = DEFAULT_PWM_MOTOR_CURRENT_LOUD;
 	float tmp_motor[3] = DEFAULT_PWM_MOTOR_CURRENT;
 	float current_position_init;
@@ -5381,6 +5393,7 @@ static bool lcd_selfcheck_pulleys(int axis)
 				}
 			}
 		}		
+#endif DIGIPOT_I2C
 	return(true);
 }
 

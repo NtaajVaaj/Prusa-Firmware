@@ -5,7 +5,7 @@
 #include "Configuration_prusa.h"
 
 // Firmware version
-#define FW_version "3.1.0-RC2"
+#define FW_version "3.1.0-RC2-DV1"
 
 #define FW_PRUSA3D_MAGIC "PRUSA3DFW"
 #define FW_PRUSA3D_MAGIC_LEN 10
@@ -88,9 +88,6 @@
 
 // The following define selects which electronics board you have.
 // Please choose the name from boards.h that matches your setup
-
-
-
 
 
 
@@ -491,11 +488,11 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 
 // The RepRapDiscount Smart Controller (white PCB)
 // http://reprap.org/wiki/RepRapDiscount_Smart_Controller
-#define REPRAP_DISCOUNT_SMART_CONTROLLER
+//#define REPRAP_DISCOUNT_SMART_CONTROLLER
 
 // The GADGETS3D G3D LCD/SD Controller (blue PCB)
 // http://reprap.org/wiki/RAMPS_1.3/1.4_GADGETS3D_Shield_with_Panel
-//#define G3D_PANEL
+#define G3D_PANEL
 
 // The RepRapDiscount FULL GRAPHIC Smart Controller (quadratic white PCB)
 // http://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
