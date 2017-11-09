@@ -51,11 +51,11 @@ const bool Z_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define MANUAL_Z_HOME_POS 0.15
 
 // Travel limits after homing
-#define X_MAX_POS 250
+#define X_MAX_POS 190 //250
 #define X_MIN_POS 0
-#define Y_MAX_POS 210
+#define Y_MAX_POS 190 //210
 #define Y_MIN_POS -2.2
-#define Z_MAX_POS 210
+#define Z_MAX_POS 200 //210
 #define Z_MIN_POS 0.15
 
 // Canceled home position
@@ -208,11 +208,11 @@ BED SETTINGS
 
 #define MBL_Z_STEP 0.01
 
-// Mesh definitions
+// Mesh definitions  - Allow room for Induction Sensor
 #define MESH_MIN_X 35
-#define MESH_MAX_X 238
-#define MESH_MIN_Y 6
-#define MESH_MAX_Y 202
+#define MESH_MAX_X ( X_MAX_POS + 40 ) //238
+#define MESH_MIN_Y (Y_MIN_POS + 40 ) // 6
+#define MESH_MAX_Y (Y_MAX_POS - 20 ) //202
 
 // Mesh upsample definition
 #define MESH_NUM_X_POINTS 7

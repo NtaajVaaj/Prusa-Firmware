@@ -43,7 +43,7 @@ AXIS SETTINGS
 // Endstop inverting
 const bool X_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Y_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
-const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
+const bool Z_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
 
 // Home position
 #define MANUAL_X_HOME_POS 0
@@ -51,11 +51,11 @@ const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define MANUAL_Z_HOME_POS 0.15
 
 // Travel limits after homing
-#define X_MAX_POS 250
+#define X_MAX_POS 190 //250
 #define X_MIN_POS 0
-#define Y_MAX_POS 210
+#define Y_MAX_POS 190 //210
 #define Y_MIN_POS -2.2
-#define Z_MAX_POS 210
+#define Z_MAX_POS 200 //210
 #define Z_MIN_POS 0.15
 
 // Canceled home position
@@ -117,14 +117,11 @@ EXTRUDER SETTINGS
 #define EXTRUDE_MINTEMP 130
 
 // Extruder cooling fans
-#define EXTRUDER_0_AUTO_FAN_PIN   8
+#define EXTRUDER_0_AUTO_FAN_PIN   9  //orig prusa val = 8 // See FAN_PIN for RAMPS
 #define EXTRUDER_1_AUTO_FAN_PIN   -1
 #define EXTRUDER_2_AUTO_FAN_PIN   -1
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
 #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
-
-
-
 
 
 
@@ -211,11 +208,11 @@ BED SETTINGS
 
 #define MBL_Z_STEP 0.01
 
-// Mesh definitions
+// Mesh definitions  - Allow room for Induction Sensor
 #define MESH_MIN_X 35
-#define MESH_MAX_X 238
-#define MESH_MIN_Y 6
-#define MESH_MAX_Y 202
+#define MESH_MAX_X ( X_MAX_POS + 40 ) //238
+#define MESH_MIN_Y (Y_MIN_POS + 40 ) // 6
+#define MESH_MAX_Y (Y_MAX_POS - 20 ) //202
 
 // Mesh upsample definition
 #define MESH_NUM_X_POINTS 7
@@ -356,10 +353,12 @@ THERMISTORS SETTINGS
 #elif defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define TEMP_SENSOR_0 148
 #else
-#define TEMP_SENSOR_0 5
+#define TEMP_SENSOR_0 1
 #endif
+
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
+
 #if defined(E3D_PT100_BED_WITH_AMP)
 #define TEMP_SENSOR_BED 247
 #elif defined(E3D_PT100_BED_NO_AMP)
