@@ -929,6 +929,7 @@ void lcd_commands()
 #ifdef BABYSTEPPING
 			lcd_goto_menu(lcd_babystep_z, 0, false);			
 #endif
+			enquecommand_P(PSTR("G1 X0 Y-2.0 F1000.0")); //Position Y at dump
 			enquecommand_P(PSTR("G1 X60.0 E9.0  F1000.0")); //intro line
 			enquecommand_P(PSTR("G1 X100.0 E12.5  F1000.0")); //intro line			
 			enquecommand_P(PSTR("G92 E0.0"));
