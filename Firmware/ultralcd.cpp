@@ -913,8 +913,8 @@ void lcd_commands()
 		{
 			enquecommand_P(PSTR("M107"));
 			enquecommand_P(PSTR("M104 S210"));
-			enquecommand_P(PSTR("M140 S55"));
-			enquecommand_P(PSTR("M190 S55"));
+			//enquecommand_P(PSTR("M140 S55"));
+			//enquecommand_P(PSTR("M190 S55"));
 			enquecommand_P(PSTR("M109 S210"));
 			enquecommand_P(PSTR("M117 First layer cal."));
 			enquecommand_P(PSTR("G87")); //sets calibration status

@@ -44,7 +44,7 @@ AXIS SETTINGS
 // Endstop inverting
 const bool X_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Y_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
-const bool Z_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
+const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 
 // Home position
 #define MANUAL_X_HOME_POS 0
@@ -290,19 +290,19 @@ PREHEAT SETTINGS
 #define PLA_PREHEAT_FAN_SPEED 0  
 
 #define ABS_PREHEAT_HOTEND_TEMP 255
-#define ABS_PREHEAT_HPB_TEMP 65
+#define ABS_PREHEAT_HPB_TEMP 55
 #define ABS_PREHEAT_FAN_SPEED 0 
 
 #define HIPS_PREHEAT_HOTEND_TEMP 220
-#define HIPS_PREHEAT_HPB_TEMP 65
+#define HIPS_PREHEAT_HPB_TEMP 55
 #define HIPS_PREHEAT_FAN_SPEED 0 
 
 #define PP_PREHEAT_HOTEND_TEMP 254
-#define PP_PREHEAT_HPB_TEMP  65
+#define PP_PREHEAT_HPB_TEMP  55
 #define PP_PREHEAT_FAN_SPEED 0 
 
 #define PET_PREHEAT_HOTEND_TEMP 240
-#define PET_PREHEAT_HPB_TEMP 65
+#define PET_PREHEAT_HPB_TEMP 55
 #define PET_PREHEAT_FAN_SPEED 0 
 
 #define FLEX_PREHEAT_HOTEND_TEMP 230
