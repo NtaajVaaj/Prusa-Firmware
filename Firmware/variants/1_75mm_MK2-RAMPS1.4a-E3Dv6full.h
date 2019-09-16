@@ -36,35 +36,35 @@ AXIS SETTINGS
 #ifdef SNMM
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,140}
 #else
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,161.3}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,129.0}
 #endif
 
 
 // Endstop inverting
 const bool X_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 const bool Y_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
-const bool Z_MIN_ENDSTOP_INVERTING = true; // set to true to invert the logic of the endstop.
+const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic of the endstop.
 
 // Home position
 #define MANUAL_X_HOME_POS 0
-#define MANUAL_Y_HOME_POS -2.2
-#define MANUAL_Z_HOME_POS 0.15
+#define MANUAL_Y_HOME_POS 0
+#define MANUAL_Z_HOME_POS 0.2
 
 // Travel limits after homing
-#define X_MAX_POS 205 //250
-#define X_MIN_POS 0
-#define Y_MAX_POS 185 //210
-#define Y_MIN_POS -2.2
-#define Z_MAX_POS 190 //210
+#define X_MAX_POS 210
+#define X_MIN_POS -12
+#define Y_MAX_POS 200
+#define Y_MIN_POS -10
+#define Z_MAX_POS 200
 #define Z_MIN_POS 0.15
 
 // Canceled home position
 #define X_CANCEL_POS 50
-#define Y_CANCEL_POS 190
+#define Y_CANCEL_POS Y_MAX_POS
 
 //Pause print position
 #define X_PAUSE_POS 50
-#define Y_PAUSE_POS 190
+#define Y_PAUSE_POS Y_MAX_POS
 #define Z_PAUSE_LIFT 20
 
 #define NUM_AXIS 4 // The axis order in all axis related arrays is X, Y, Z, E
@@ -117,7 +117,7 @@ EXTRUDER SETTINGS
 #define EXTRUDE_MINTEMP 130
 
 // Extruder cooling fans
-#define EXTRUDER_0_AUTO_FAN_PIN   9  //orig prusa val = 8 // See FAN_PIN for RAMPS
+#define EXTRUDER_0_AUTO_FAN_PIN   5  //orig prusa val = 8 // See FAN_PIN for RAMPS
 #define EXTRUDER_1_AUTO_FAN_PIN   -1
 #define EXTRUDER_2_AUTO_FAN_PIN   -1
 #define EXTRUDER_AUTO_FAN_TEMPERATURE 50
@@ -144,7 +144,7 @@ CHANGE FILAMENT SETTINGS
 // Filament change configuration
 #define FILAMENTCHANGEENABLE
 #ifdef FILAMENTCHANGEENABLE
-#define FILAMENTCHANGE_XPOS 211
+#define FILAMENTCHANGE_XPOS X_MAX_POS
 #define FILAMENTCHANGE_YPOS 0
 #define FILAMENTCHANGE_ZADD 2
 #define FILAMENTCHANGE_FIRSTRETRACT -2
@@ -208,12 +208,12 @@ BED SETTINGS
 
 #define MBL_Z_STEP 0.01
 
-// Mesh definitions  - Allow room for Induction Sensor
-// NOTE: DV These values don't seem to work.  See X_MAX_POS, Y_MAX_POS...instead
-#define MESH_MIN_X 35
-#define MESH_MAX_X 238 //190 // ( X_MAX_POS - X_PROBE_OFFSET_FROM_EXTRUDER ) //238
-#define MESH_MIN_Y 6   //(Y_MIN_POS + 40 ) // 6
-#define MESH_MAX_Y 202 //(Y_MAX_POS - 20 ) //202
+// Mesh definitions  - EXACT machine coordinates, mesh_bed_calibration.cpp will
+// take care of PINDA offsets.  Make sure these values allow room for PINDA!!!
+#define MESH_MIN_X 0.0f
+#define MESH_MAX_X 210.0f
+#define MESH_MIN_Y 10.0f
+#define MESH_MAX_Y 195.0f
 
 // Mesh upsample definition
 #define MESH_NUM_X_POINTS 7
@@ -226,7 +226,7 @@ BED SETTINGS
 #define MESH_HOME_Z_SEARCH 5 //Z lift for homing, mesh bed leveling etc.
 
 #define X_PROBE_OFFSET_FROM_EXTRUDER 23     // Z probe to nozzle X offset: -left  +right
-#define Y_PROBE_OFFSET_FROM_EXTRUDER 9     // Z probe to nozzle Y offset: -front +behind
+#define Y_PROBE_OFFSET_FROM_EXTRUDER 5     // Z probe to nozzle Y offset: -front +behind
 #define Z_PROBE_OFFSET_FROM_EXTRUDER -0.4  // Z probe to nozzle Z offset: -below (always!)
 #endif
 
@@ -284,28 +284,28 @@ BED SETTINGS
 PREHEAT SETTINGS
 *------------------------------------*/
 
-#define PLA_PREHEAT_HOTEND_TEMP 215
-#define PLA_PREHEAT_HPB_TEMP 55
+#define PLA_PREHEAT_HOTEND_TEMP 200
+#define PLA_PREHEAT_HPB_TEMP 0
 #define PLA_PREHEAT_FAN_SPEED 0  
 
-#define ABS_PREHEAT_HOTEND_TEMP 255
-#define ABS_PREHEAT_HPB_TEMP 100
+#define ABS_PREHEAT_HOTEND_TEMP 240
+#define ABS_PREHEAT_HPB_TEMP 55
 #define ABS_PREHEAT_FAN_SPEED 0 
 
 #define HIPS_PREHEAT_HOTEND_TEMP 220
-#define HIPS_PREHEAT_HPB_TEMP 100
+#define HIPS_PREHEAT_HPB_TEMP 55
 #define HIPS_PREHEAT_FAN_SPEED 0 
 
 #define PP_PREHEAT_HOTEND_TEMP 254
-#define PP_PREHEAT_HPB_TEMP 100
+#define PP_PREHEAT_HPB_TEMP 55
 #define PP_PREHEAT_FAN_SPEED 0 
 
-#define PET_PREHEAT_HOTEND_TEMP 240
-#define PET_PREHEAT_HPB_TEMP 90
+#define PET_PREHEAT_HOTEND_TEMP 220
+#define PET_PREHEAT_HPB_TEMP 55
 #define PET_PREHEAT_FAN_SPEED 0 
 
 #define FLEX_PREHEAT_HOTEND_TEMP 230
-#define FLEX_PREHEAT_HPB_TEMP 50
+#define FLEX_PREHEAT_HPB_TEMP 55
 #define FLEX_PREHEAT_FAN_SPEED 0 
 
 /*------------------------------------

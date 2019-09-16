@@ -966,21 +966,21 @@ void lcd_commands()
 			enquecommand_P(PSTR("G1 E - 0.07500 F2100.00000"));*/
 
 
-			enquecommand_P(PSTR("G1 X50 Y155"));
+			enquecommand_P(PSTR("G1 X10 Y155"));
 			enquecommand_P(PSTR("G1 F1080"));
 			enquecommand_P(PSTR("G1 X75 Y155 E2.5"));
 			enquecommand_P(PSTR("G1 X100 Y155 E2"));
 			enquecommand_P(PSTR("G1 X200 Y155 E2.62773"));
 			enquecommand_P(PSTR("G1 X200 Y135 E0.66174"));
-			enquecommand_P(PSTR("G1 X50 Y135 E3.62773"));
-			enquecommand_P(PSTR("G1 X50 Y115 E0.49386"));
+			enquecommand_P(PSTR("G1 X10 Y135 E3.62773"));
+			enquecommand_P(PSTR("G1 X10 Y115 E0.49386"));
 			enquecommand_P(PSTR("G1 X200 Y115 E3.62773"));
 			enquecommand_P(PSTR("G1 X200 Y95 E0.49386"));
-			enquecommand_P(PSTR("G1 X50 Y95 E3.62773"));
-			enquecommand_P(PSTR("G1 X50 Y75 E0.49386"));
+			enquecommand_P(PSTR("G1 X10 Y95 E3.62773"));
+			enquecommand_P(PSTR("G1 X10 Y75 E0.49386"));
 			enquecommand_P(PSTR("G1 X200 Y75 E3.62773"));
 			enquecommand_P(PSTR("G1 X200 Y55 E0.49386"));
-			enquecommand_P(PSTR("G1 X50 Y55 E3.62773"));
+			enquecommand_P(PSTR("G1 X10 Y55 E3.62773"));
 			
 			lcd_commands_step = 6;
 		}
@@ -989,12 +989,12 @@ void lcd_commands()
 		{
 
 			lcd_timeoutToStatus = millis() + LCD_TIMEOUT_TO_STATUS;
-			strcpy(cmd1, "G1 X50 Y35 E");
+			strcpy(cmd1, "G1 X10 Y35 E");
 			strcat(cmd1, ftostr43(extr));
 			enquecommand(cmd1);
 
 			for (int i = 0; i < 4; i++) {
-				strcpy(cmd1, "G1 X70 Y");
+				strcpy(cmd1, "G1 X30 Y");
 				strcat(cmd1, ftostr32(35 - i*width * 2));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1004,7 +1004,7 @@ void lcd_commands()
 				strcat(cmd1, "E ");
 				strcat(cmd1, ftostr43(extr_short_segment));
 				enquecommand(cmd1);
-				strcpy(cmd1, "G1 X50 Y");
+				strcpy(cmd1, "G1 X10 Y");
 				strcat(cmd1, ftostr32(35 - (2 * i + 1)*width));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1023,7 +1023,7 @@ void lcd_commands()
 		{
 			lcd_timeoutToStatus = millis() + LCD_TIMEOUT_TO_STATUS;
 			for (int i = 4; i < 8; i++) {
-				strcpy(cmd1, "G1 X70 Y");
+				strcpy(cmd1, "G1 X30 Y");
 				strcat(cmd1, ftostr32(35 - i*width * 2));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1033,7 +1033,7 @@ void lcd_commands()
 				strcat(cmd1, "E ");
 				strcat(cmd1, ftostr43(extr_short_segment));
 				enquecommand(cmd1);
-				strcpy(cmd1, "G1 X50 Y");
+				strcpy(cmd1, "G1 X10 Y");
 				strcat(cmd1, ftostr32(35 - (2 * i + 1)*width));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1052,7 +1052,7 @@ void lcd_commands()
 		{
 			lcd_timeoutToStatus = millis() + LCD_TIMEOUT_TO_STATUS;
 			for (int i = 8; i < 12; i++) {
-				strcpy(cmd1, "G1 X70 Y");
+				strcpy(cmd1, "G1 X30 Y");
 				strcat(cmd1, ftostr32(35 - i*width * 2));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1062,7 +1062,7 @@ void lcd_commands()
 				strcat(cmd1, "E ");
 				strcat(cmd1, ftostr43(extr_short_segment));
 				enquecommand(cmd1);
-				strcpy(cmd1, "G1 X50 Y");
+				strcpy(cmd1, "G1 X10 Y");
 				strcat(cmd1, ftostr32(35 - (2 * i + 1)*width));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1081,7 +1081,7 @@ void lcd_commands()
 		{
 			lcd_timeoutToStatus = millis() + LCD_TIMEOUT_TO_STATUS;
 			for (int i = 12; i < 16; i++) {
-				strcpy(cmd1, "G1 X70 Y");
+				strcpy(cmd1, "G1 X30 Y");
 				strcat(cmd1, ftostr32(35 - i*width * 2));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));
@@ -1091,7 +1091,7 @@ void lcd_commands()
 				strcat(cmd1, "E ");
 				strcat(cmd1, ftostr43(extr_short_segment));
 				enquecommand(cmd1);
-				strcpy(cmd1, "G1 X50 Y");
+				strcpy(cmd1, "G1 X10 Y");
 				strcat(cmd1, ftostr32(35 - (2 * i + 1)*width));
 				strcat(cmd1, " E");
 				strcat(cmd1, ftostr43(extr));

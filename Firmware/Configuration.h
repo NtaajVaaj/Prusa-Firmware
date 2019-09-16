@@ -5,7 +5,7 @@
 #include "Configuration_prusa.h"
 
 // Firmware version
-#define FW_version "3.1.0-DV6"  //based on 3.1.0-RC2
+#define FW_version "3.1.0-DV7"  //based on 3.1.0-RC2
 
 #define FW_PRUSA3D_MAGIC "PRUSA3DFW"
 #define FW_PRUSA3D_MAGIC_LEN 10
@@ -475,7 +475,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = true; // set to true to invert the logic of
 #define SDSUPPORT // Enable SD Card Support in Hardware Console
 //#define SDSLOW // Use slower SD transfer mode (not normally needed - uncomment if you're getting volume init error)
 #define SD_CHECK_AND_RETRY // Use CRC checks and retries on the SD communication
-#define ENCODER_PULSES_PER_STEP 4 // Increase if you have a high resolution encoder
+#define ENCODER_PULSES_PER_STEP 5 // Increase if you have a high resolution encoder
 #define ENCODER_STEPS_PER_MENU_ITEM 1 // Set according to ENCODER_PULSES_PER_STEP or your liking
 //#define ULTIMAKERCONTROLLER //as available from the Ultimaker online store.
 //#define ULTIPANEL  //the UltiPanel as on Thingiverse
