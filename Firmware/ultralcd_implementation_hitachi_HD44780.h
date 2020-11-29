@@ -689,7 +689,6 @@ void lcd_implementation_print_at(uint8_t x, uint8_t y, const char *str)
 */
 static void lcd_implementation_status_screen()
 {
-   
     int tHotend=int(degHotend(0) + 0.5);
     int tTarget=int(degTargetHotend(0) + 0.5);
 
@@ -755,7 +754,7 @@ static void lcd_implementation_status_screen()
       planner_queue_min_reset();
     }
 #endif
-	
+
     //Print SD status
     lcd.setCursor(0, 2);
 	if (is_usb_printing)
@@ -783,24 +782,24 @@ static void lcd_implementation_status_screen()
 			lcd.print('%');
 		}
 	}
-    
+
 	// Farm number display
 	if (farm_mode)
 	{
 		lcd_printPGM(PSTR(" F"));
 		lcd.print(farm_no);
 		lcd_printPGM(PSTR("  "));
-        
+
         // Beat display
         lcd.setCursor(LCD_WIDTH - 1, 0);
         if ( (millis() - kicktime) < 60000 ) {
-        
+
             lcd_printPGM(PSTR("L"));
-        
+
         }else{
             lcd_printPGM(PSTR(" "));
         }
-        
+
 	}
 	else {
 #ifdef SNMM
@@ -887,7 +886,7 @@ static void lcd_implementation_status_screen()
     // If not, check for other special events
 	else
 	{
-        
+
 		if (custom_message)
 		{
             // If heating flag, show progress of heating.
@@ -980,7 +979,7 @@ static void lcd_implementation_status_screen()
 				if (pid_cycle <= pid_number_of_cycles && custom_message_state > 0) {
 					lcd.setCursor(10, 3);
 					lcd.print(itostr3(pid_cycle));
-					
+
 					lcd.print('/');
 					lcd.print(itostr3left(pid_number_of_cycles));
 				}
@@ -1002,7 +1001,7 @@ static void lcd_implementation_status_screen()
 					lcd_printPGM(PSTR(": "));
 					lcd.print(custom_message_state); //seconds
 					lcd.print(' ');
-					
+
 				}
 			}
 
@@ -1014,7 +1013,7 @@ static void lcd_implementation_status_screen()
 			lcd.print(lcd_status_message);
 		}
 	}
-    
+
     // Fill the rest of line to have nice and clean output
     for(int fillspace = 0; fillspace<20;fillspace++)
 	{

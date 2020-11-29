@@ -379,7 +379,9 @@ enum MarlinBusyState {
 #define KEEPALIVE_STATE(n) do { busy_state = n;} while (0)
 extern void host_keepalive();
 extern MarlinBusyState busy_state;
-
+#else
+#define KEEPALIVE_STATE(n)  (void)0
+#define host_keepalive() (void)0
 #endif //HOST_KEEPALIVE_FEATURE
 
 bool gcode_M45(bool onlyZ);
