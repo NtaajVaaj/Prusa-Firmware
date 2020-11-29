@@ -11,30 +11,29 @@ Mechanical changes:
 
 ## General instructions
 
-Pre-compiled hex output on PRUSA RESEARCH site: http://prusa3d.com/downloads/firmware/
-
-Just download and flash it to the electronics
-
+Clone this repository
+Connect computer to RAMPS board via USB
+Use Arduino 1.0.6 to compile and flash
 
 ## Build instructions
 
 ### Step 1
 
-Install arduino
+Install Arduino 1.0.6
 
 ### Step 2
 
 Remove Liquid Crystal library from your arduino or rename it
 
-### Step 3
+### Step 3 
 
 Install the arduino addon located in the root of this repo. Don't forget to install correct version!
 
-### Step 4
+### Step 4 (Optional)
 
 Copy the configuration file matching your printer from variants folder to the the Firmware folder
 
-### Step 5
+### Step 5 (Optional)
 
 Rename it to "Configuration_prusa.h"
 
