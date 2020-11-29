@@ -1,4 +1,13 @@
-# Original Prusa i3 MK2 Firmware
+# Prusa i3 MK2 Firmware for RAMPS 1.4
+This firmware was forked from prusa3d/Prusa-Firmware git repository and modifed to work on RAMPS 1.4 board + Gadget 3D LCD.
+A few bed, pinda, and stepper constants and offsets were also modifed to support my DIY clone of the Prusa i3 design.
+
+Mechanical changes:
+- 220 x 220 bed
+- MK3S hotend pinda offset
+- 3/4" plywood frame
+- RAMPS 1.4 + A4988 drivers
+
 
 ## General instructions
 
